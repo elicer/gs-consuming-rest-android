@@ -16,12 +16,11 @@
 
 package org.hello;
 
-import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 
 public class HelloActivity extends Activity {
 
@@ -29,17 +28,13 @@ public class HelloActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		String searchUrl = "http://search.twitter.com/search.json?q={query}";
+		String url = "http://search.twitter.com/search.json?q={query}";
 
 		String queryParameter = "@gopivotal";
 
 		RestTemplate restTemplate = new RestTemplate();
-		
-		restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
-
-		String responseBody = restTemplate.getForObject(searchUrl, String.class, queryParameter);
-		
-		Log.d("Consuming REST", responseBody);
+		restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+		TwitterSearchResults results = restTemplate.getForObject(url, TwitterSearchResults.class, queryParameter);
 	}
 
 }
