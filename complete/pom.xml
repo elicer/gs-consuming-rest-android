@@ -3,59 +3,40 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.hello</groupId>
-	<artifactId>gs-consuming-rest-android-complete</artifactId>
-	<version>1.0.0.BUILD-SNAPSHOT</version>
+	<artifactId>rest-android-complete</artifactId>
+	<version>1.0.0</version>
 	<packaging>apk</packaging>
-	<name>gs-consuming-rest-android-complete</name>
-	<url>http://www.springsource.org/spring-android</url>
-	<inceptionYear>2013</inceptionYear>
-	<organization>
-		<name>SpringSource</name>
-		<url>http://www.springsource.org</url>
-	</organization>
-
-	<properties>
-		<android-platform>17</android-platform>
-		<android-maven-plugin-version>3.5.3</android-maven-plugin-version>
-		<maven-compiler-plugin-version>3.1</maven-compiler-plugin-version>
-		<java-version>1.6</java-version>
-		<maven-eclipse-plugin-version>2.9</maven-eclipse-plugin-version>
-		<com.google.android-version>4.1.1.4</com.google.android-version>
-		<!-- Available Android versions: 1.5_r3, 1.5_r4, 1.6_r2, 2.1.2, 2.1_r1, 2.2.1, 2.3.1, 2.3.3, 4.0.1.2, 4.1.1.4 -->
-		<org.springframework.android-version>1.0.1.RELEASE</org.springframework.android-version>
-		<com.fasterxml.jackson-version>2.1.4</com.fasterxml.jackson-version>
-	</properties>
+	<name>rest-android-complete</name>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.google.android</groupId>
 			<artifactId>android</artifactId>
-			<version>${com.google.android-version}</version>
+			<version>4.1.1.4</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.android</groupId>
 			<artifactId>spring-android-rest-template</artifactId>
-			<version>${org.springframework.android-version}</version>
+			<version>1.0.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>${com.fasterxml.jackson-version}</version>
+			<version>2.2.1</version>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
 				<artifactId>android-maven-plugin</artifactId>
-				<version>${android-maven-plugin-version}</version>
+				<version>3.5.3</version>
 				<configuration>
 					<sdk>
-						<platform>${android-platform}</platform>
+						<platform>17</platform>
 					</sdk>
 					<deleteConflictingFiles>true</deleteConflictingFiles>
 					<undeployBeforeDeploy>true</undeployBeforeDeploy>
@@ -64,19 +45,10 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin-version}</version>
+				<version>3.1</version>
 				<configuration>
-					<source>${java-version}</source>
-					<target>${java-version}</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>${maven-eclipse-plugin-version}</version>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
+					<source>1.6</source>
+					<target>1.6</target>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -17,7 +17,7 @@ Before we can consume a RESTful service, there is some initial project setup tha
 The sample in this Getting Started Guide will leverage Spring for Android and the Jackson JSON processor. Therefore, you'll need to declare the following library dependencies in your build:
 
   - org.springframework.android:spring-android-rest-template:1.0.1.RELEASE
-  - com.fasterxml.jackson.core:jackson-databind:2.2.0
+  - com.fasterxml.jackson.core:jackson-databind:2.2.1
 
 Click here for details on how to map these dependencies to your specific build tool.
 

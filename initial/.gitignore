@@ -3,6 +3,10 @@
 *.DS_Store
 Thumbs.db
 
+# Gradle Files
+
+.gradle/
+
 # build Artifacts
 
 build/
