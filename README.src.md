@@ -1,31 +1,127 @@
-# Getting Started: Consuming REST Services with Spring
+Getting Started: Consuming REST Services with Spring
+====================================================
 
+What you'll build
+-----------------
 
 This Getting Started guide will walk you through the process of consuming a REST service using Spring for Android's `RestTemplate`.
 
-To help you get started, we've provided an initial project structure for you in GitHub:
+What you'll need
+----------------
 
-```sh
-$ git clone https://github.com/springframework-meta/gs-consuming-rest-android.git
-```
+- About 15 minutes
+- {!include#prereq-editor-jdk-buildtools}
 
-Before we can consume a RESTful service, there is some initial project setup that is required. Or, you can skip straight to the [fun part]().
+## {!include#how-to-complete-this-guide}
+
+<a name="scratch"></a>
+Installing the Android Development Environment
+----------------------------------------------
+
+Building Android applications requires the installation of the [Android SDK].
+
+### Install the Android SDK
+
+1. Download the correct version of the [Android SDK] for your operating system from the Android web site.
+
+2. Unzip the archive and place it in a location of your choosing. For example on Linux or Mac, you may want to place it in the root of your user directory. See the [Android Developers] web site for additional installation details.
+
+3. Configure the `ANDROID_HOME` environment variable based on the location where you installed the Android SDK. Additionally, you should consider adding `ANDROID_HOME/tools`, `ANDROID_HOME/platform-tools`, and `ANDROID_HOME/build-tools` to your PATH.
+
+	Mac OS X:
+
+	```sh
+	$ export ANDROID_HOME=/<installation location>/android-sdk-macosx
+    $ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+    ```
+    
+    Linux:
+    
+    ```sh
+    $ export ANDROID_HOME=/<installation location>/android-sdk-linux
+    $ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+    ```
+	    
+    Windows:
+    
+    ```sh
+    set ANDROID_HOME=C:\<installation location>\android-sdk-windows
+    set PATH=%PATH%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools
+    ```
+
+4. Once the SDK is installed, we need to add the relevant [Platforms and Packages]. We are using Android 4.2.2 (API 17) in this guide.
+
+### Install Android SDK Platforms and Packages
+
+The Android SDK download does not include any specific Android platform SDKs. In order to run the sample code you need to download and install the latest SDK Platform. You accomplish this by using the Android SDK and AVD Manager that was installed from the previous step.
+
+1. Open the Android SDK Manager window:
+
+	```sh
+	$ android
+	```
+
+	> Note: if this command does not open the Android SDK Manager, then your path is not configured correctly.
+	
+2. Select the checkbox for *Tools*
+
+3. Select the checkbox for the latest Android SDK, "Android 4.2.2 (API 17)" as of this writing
+
+4. Select the checkbox for the *Android Support Library* from the *Extras* folder
+
+5. Click the **Install packages...** button to complete the download and installation.
+
+	> Note: you may want to simply install all the available updates, but be aware it will take longer, as each SDK level is a sizable download.
+
+### Create an Android Virtual Device
+
+If you have never installed the Android SDK, then you will probably need to create a new Android Virtual Device (avd) in order to use the emulator later on.
+
+1. Check if there are any avds
+
+    android list avd
+    
+2. If there are no devices listed, then create one:
+
+    android create avd -n gs -t 1
+    
+3. If you get prompted about multiple system images, then pick one based on your platform. For example, I have an x86 laptop so I picked x86.
+
+    android create avd -n gs -t 1 --abi x86
+    
+4. Check if you're new avd is on the list:
+
+    android list avd
+    
+5. Test out your new avd by launching the emulator.
+
+    emulator -avd gs
+
+Set up the project
+------------------
+
+{!include#build-system-intro}
+
+In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/hello` on *nix systems:
+
+    └── src
+        └── main
+            └── java
+                └── org
+                    └── hello
 
 
-## Selecting Dependencies
+### Create a Maven POM
 
-The sample in this Getting Started Guide will leverage Spring for Android and the Jackson JSON processor. Therefore, you'll need to declare the following library dependencies in your build:
+{!include#maven-project-setup-options}
 
-  - org.springframework.android:spring-android-rest-template:1.0.1.RELEASE
-  - com.fasterxml.jackson.core:jackson-databind:2.2.1
-
-Click here for details on how to map these dependencies to your specific build tool.
-
-
-## Creating a Representation Class
+    {!include:complete/pom.xml}
+    
+<a name="initial"></a>
+Create a representation class
+-----------------------------
 
 With the Android project configured, it's time to create our REST request. Before we can do that though, we need to consider the data we are wanting to consume. 
-
 
 ### Twitter JSON Data
 
@@ -74,118 +170,52 @@ The `from_user` field represents the user who posted the tweet, and `text` is th
 
 The first representation class defines a single property which contains the list of tweets from the search. The `@JsonIgnoreProperties` annotation says to ignore all the other fields in the JSON response data. We are only concerned with the tweets.
 
-```java
-package org.hello;
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class TwitterSearchResults {
-
-	private List<Tweet> results;
-
-	public List<Tweet> getResults() {
-		return results;
-	}
-
-	public void setResults(List<Tweet> results) {
-		this.results = results;
-	}
-
-}
-```
+    {!include:complete/src/main/java/org/hello/TwitterSearchResults.java}
+    
 
 ### Tweet
 
 The second representation class is for each individual tweet. Again you see `@JsonIgnoreProperties` being used, and additionally, the `@JsonProperty` annotation allows allows us to map specific fields in the JSON data to fields in the representational class which have different names.
 
-```java
-package org.hello;
+    {!include:complete/src/main/java/org/hello/Tweet.java}
+    
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class Tweet {
-
-	@JsonProperty("from_user")
-	private String fromUser;
-
-	private String text;
-
-	public String getFromUser() {
-		return fromUser;
-	}
-	
-	public void setFromUser(String fromUser) {
-		this.fromUser = fromUser;
-	}
-
-	public String getText() {
-		return text;
-	}
-	
-	public void setText(String text) {
-		this.text = text;
-	}
-
-}
-```
-
-## Invoking REST services with the RestTemplate
+Invoking REST services with the RestTemplate
+--------------------------------------------
 
 Spring provides a convenient template class called the `RestTemplate`. The `RestTemplate` makes interacting with most RESTful services a one-liner incantation. In the example below, we establish a few variables and then make a request of the Twitter search service. As mentioned earlier, we will use Jackson to marshal the JSON response data into our representation classes.
 
-```java
-package org.hello;
-
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
-
-import android.app.Activity;
-import android.os.Bundle;
-
-public class HelloActivity extends Activity {
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-
-		String url = "http://search.twitter.com/search.json?q={query}";
-
-		String queryParameter = "@gopivotal";
-
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-		TwitterSearchResults results = restTemplate.getForObject(url, TwitterSearchResults.class, queryParameter);
-	}
-
-}
-```
-
+    {!include:complete/src/main/java/org/hello/HelloActivity.java}
+    
 Thus far, we've only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
 
 
-## Building and Running the Client
+Building and Running the Client
+-------------------------------
 
-To invoke the code and see the results of the search, simply run it from the command line, like this:
+To build the code, first build it:
 
-```sh
-$ mvn clean install android:deploy android:run
-```
+    mvn clean install
+    
+Next, to run the emulator, invoke:
+
+    mvn android:emulator-start
+    
+After the emulator is up and running, you can deploy and run the Android code to see the results of the search:
+
+    mvn android:deploy android:run
 	
 This will compile the Android app and then run it in the emulator.
 
 
-## Next Steps
+Summary
+-------
 
 Congratulations! You have just developed a simple REST client using Spring.
 
-There's more to building and working with REST APIs than is covered here. You may want to continue your exploration of Spring and REST with the following Getting Started guides:
+There's more to building and working with REST APIs than is covered here.
 
-* Handling POST, PUT, and GET requests in REST endpoints
-* Consuming an HTTP Basic Auth secured REST endpoint
-* Consuming an OAuth secured REST endpoint
-
+[Android SDK]: http://developer.android.com/sdk/index.html
+[Android Developers]:http://developer.android.com/sdk/installing/index.html
+[Platforms and Packages]:http://developer.android.com/sdk/installing/adding-packages.html
