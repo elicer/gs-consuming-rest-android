@@ -113,8 +113,6 @@ In a project directory of your choosing, create the following subdirectory struc
 
 ### Create a Maven POM
 
-{!include#maven-project-setup-options}
-
     {!include:complete/pom.xml}
     
 <a name="initial"></a>

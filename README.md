@@ -132,8 +132,6 @@ In a project directory of your choosing, create the following subdirectory struc
 
 ### Create a Maven POM
 
-> **ERROR:** Section 'maven-project-setup-options' not found
-
 `pom.xml`
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
