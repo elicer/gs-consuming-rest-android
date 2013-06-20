@@ -32,8 +32,15 @@ Set up the project
 {!include#create-android-manifest}
 
     {!include:complete/AndroidManifest.xml}
-    
-    
+
+### Create a String Resource
+
+    {!include:complete/res/values/strings.xml}
+
+### Create a Layout
+
+    {!include:complete/res/layout/hello_layout.xml}
+  
 <a name="initial"></a>
 Create a representation class
 -----------------------------

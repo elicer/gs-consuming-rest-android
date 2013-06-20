@@ -211,8 +211,37 @@ The [Android Manifest] contains all the information required to run an Android a
 
 </manifest>
 ```
-    
-    
+
+### Create a String Resource
+
+`res/values/strings.xml`
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Consuming REST</string>
+
+</resources>
+```
+
+### Create a Layout
+
+`res/layout/hello_layout.xml`
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+<TextView  
+    android:id="@+id/text_view"
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    />
+</LinearLayout>
+```
+  
 <a name="initial"></a>
 Create a representation class
 -----------------------------
@@ -360,7 +389,7 @@ public class HelloActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.hello_layout);
 
 		String url = "http://search.twitter.com/search.json?q={query}";
 
