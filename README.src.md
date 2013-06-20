@@ -77,7 +77,7 @@ The Android SDK download does not include any specific Android platforms. In ord
 Set up the project
 ------------------
 
-{!include#build-system-intro}
+{!include#android-build-system-intro}
 
 In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/org/hello` on *nix systems:
 
