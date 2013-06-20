@@ -111,16 +111,7 @@ So far, we have only used the HTTP verb `GET` to make calls, but we could just a
 ## {!include#start-android-virtual-device}
 
 
-Building and Running the Client
--------------------------------
-
-Once the emulator has completed starting up, run the following command to invoke the code and see the results of the REST request:
-
-```sh
-$ mvn clean package android:deploy android:run
-```
-	
-This will compile the Android app and then run it in the emulator.
+## {!include#build-and-run-android}
 
 
 Summary
