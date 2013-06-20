@@ -28,6 +28,11 @@ Set up the project
 ### Create a Maven POM
 
     {!include:complete/pom.xml}
+
+{!include#create-android-manifest}
+
+    {!include:complete/AndroidManifest.xml}
+    
     
 <a name="initial"></a>
 Create a representation class

@@ -179,6 +179,39 @@ $ mkdir -p src/main/java/org/hello
 
 </project>
 ```
+
+### Create an Android Manifest
+
+The [Android Manifest] contains all the information required to run an Android application, and it cannot build without one.
+
+[Android Manifest]: http://developer.android.com/guide/topics/manifest/manifest-intro.html
+
+`AndroidManifest.xml`
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.hello"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="7" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application android:label="@string/app_name" >
+        <activity
+            android:name=".HelloActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+    
     
 <a name="initial"></a>
 Create a representation class
