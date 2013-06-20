@@ -15,63 +15,7 @@ What you'll need
 ## {!include#how-to-complete-this-guide}
 
 <a name="scratch"></a>
-Installing the Android Development Environment
-----------------------------------------------
-
-Building Android applications requires the installation of the [Android SDK].
-
-### Install the Android SDK
-
-1. Download the correct version of the [Android SDK] for your operating system from the Android web site.
-
-2. Unzip the archive and place it in a location of your choosing. For example on Linux or Mac, you may want to place it in the root of your user directory. See the [Android Developers] web site for additional installation details.
-
-3. Configure the `ANDROID_HOME` environment variable based on the location where you installed the Android SDK. Additionally, you should consider adding `ANDROID_HOME/tools`, and  `ANDROID_HOME/platform-tools` to your PATH.
-
-	Mac OS X:
-
-	```sh
-	$ export ANDROID_HOME=/<installation location>/android-sdk-macosx
-    $ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-    ```
-    
-    Linux:
-    
-    ```sh
-    $ export ANDROID_HOME=/<installation location>/android-sdk-linux
-    $ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-    ```
-	    
-    Windows:
-    
-    ```sh
-    set ANDROID_HOME=C:\<installation location>\android-sdk-windows
-    set PATH=%PATH%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools
-    ```
-
-4. Once the SDK is installed, we need to add the relevant [Platforms and Packages]. We are using Android 4.2.2 (API Level 17) in this guide.
-
-### Install Android SDK Platforms and Packages
-
-The Android SDK download does not include any specific Android platforms. In order to run the sample code you need to download and install the latest SDK Platform. You accomplish this by using the Android SDK and AVD Manager that was installed from the previous step.
-
-1. Open the Android SDK Manager window:
-
-	```sh
-	$ android
-	```
-
-	> Note: if this command does not open the Android SDK Manager, then your path is not configured correctly.
-	
-2. Select the checkbox for *Tools*
-
-3. Select the checkbox for the latest Android SDK, "Android 4.2.2 (API Level 17)" as of this writing
-
-4. Select the checkbox for the *Android Support Library* from the *Extras* folder
-
-5. Click the **Install packages...** button to complete the download and installation.
-
-	> Note: you may want to simply install all the available updates, but be aware it will take longer, as each API level is a sizable download.
+## {!include#android-dev-env}
 
 
 Set up the project
@@ -210,6 +154,3 @@ Congratulations! You have just developed a simple REST client using Spring.
 There's more to building and working with REST APIs than is covered here.
 
 [zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
-[Android SDK]: http://developer.android.com/sdk/index.html
-[Android Developers]: http://developer.android.com/sdk/installing/index.html
-[Platforms and Packages]: http://developer.android.com/sdk/installing/adding-packages.html
