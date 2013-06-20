@@ -23,14 +23,7 @@ Set up the project
 
 {!include#android-build-system-intro}
 
-In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/org/hello` on *nix systems:
-
-    └── src
-        └── main
-            └── java
-                └── org
-                    └── hello
-
+{!include#create-directory-structure-org-hello}
 
 ### Create a Maven POM
 
