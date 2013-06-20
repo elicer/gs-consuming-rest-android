@@ -431,6 +431,7 @@ Congratulations! You have just developed a simple REST client using Spring.
 
 There's more to building and working with REST APIs than is covered here.
 
+[zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
 [Android SDK]: http://developer.android.com/sdk/index.html
-[Android Developers]:http://developer.android.com/sdk/installing/index.html
-[Platforms and Packages]:http://developer.android.com/sdk/installing/adding-packages.html
+[Android Developers]: http://developer.android.com/sdk/installing/index.html
+[Platforms and Packages]: http://developer.android.com/sdk/installing/adding-packages.html
