@@ -154,11 +154,6 @@ In a project directory of your choosing, create the following subdirectory struc
 					</sdk>
 					<deleteConflictingFiles>true</deleteConflictingFiles>
 					<undeployBeforeDeploy>true</undeployBeforeDeploy>
-       					<emulator>
-            					<avd>gs</avd>
-            					<!-- Wait for emulator starting (3 minutes) -->
-            					<wait>180000</wait>
-        				</emulator>
 				</configuration>
 				<extensions>true</extensions>
 			</plugin>
