@@ -11,10 +11,11 @@ What you'll need
 
 - About 15 minutes
  - A favorite text editor or IDE
- - [JDK 6][jdk] or later
+ - [Android SDK][sdk]
  - [Maven 3.0][mvn] or later
+ - An Android device or Emulator
 
-[jdk]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+[sdk]: http://developer.android.com/sdk/index.html
 [mvn]: http://maven.apache.org/download.cgi
 
 How to complete this guide

@@ -10,7 +10,7 @@ What you'll need
 ----------------
 
 - About 15 minutes
-- {!include#prereq-editor-jdk-buildtools}
+- {!include#prereq-editor-android-buildtools}
 
 ## {!include#how-to-complete-this-guide}
 
