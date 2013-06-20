@@ -45,7 +45,7 @@ Building Android applications requires the installation of the [Android SDK].
 
 2. Unzip the archive and place it in a location of your choosing. For example on Linux or Mac, you may want to place it in the root of your user directory. See the [Android Developers] web site for additional installation details.
 
-3. Configure the `ANDROID_HOME` environment variable based on the location where you installed the Android SDK. Additionally, you should consider adding `ANDROID_HOME/tools`, `ANDROID_HOME/platform-tools`, and `ANDROID_HOME/build-tools` to your PATH.
+3. Configure the `ANDROID_HOME` environment variable based on the location where you installed the Android SDK. Additionally, you should consider adding `ANDROID_HOME/tools`, and  `ANDROID_HOME/platform-tools` to your PATH.
 
 	Mac OS X:
 
@@ -68,11 +68,11 @@ Building Android applications requires the installation of the [Android SDK].
     set PATH=%PATH%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools
     ```
 
-4. Once the SDK is installed, we need to add the relevant [Platforms and Packages]. We are using Android 4.2.2 (API 17) in this guide.
+4. Once the SDK is installed, we need to add the relevant [Platforms and Packages]. We are using Android 4.2.2 (API Level 17) in this guide.
 
 ### Install Android SDK Platforms and Packages
 
-The Android SDK download does not include any specific Android platform SDKs. In order to run the sample code you need to download and install the latest SDK Platform. You accomplish this by using the Android SDK and AVD Manager that was installed from the previous step.
+The Android SDK download does not include any specific Android platforms. In order to run the sample code you need to download and install the latest SDK Platform. You accomplish this by using the Android SDK and AVD Manager that was installed from the previous step.
 
 1. Open the Android SDK Manager window:
 
@@ -84,44 +84,21 @@ The Android SDK download does not include any specific Android platform SDKs. In
 	
 2. Select the checkbox for *Tools*
 
-3. Select the checkbox for the latest Android SDK, "Android 4.2.2 (API 17)" as of this writing
+3. Select the checkbox for the latest Android SDK, "Android 4.2.2 (API Level 17)" as of this writing
 
 4. Select the checkbox for the *Android Support Library* from the *Extras* folder
 
 5. Click the **Install packages...** button to complete the download and installation.
 
-	> Note: you may want to simply install all the available updates, but be aware it will take longer, as each SDK level is a sizable download.
+	> Note: you may want to simply install all the available updates, but be aware it will take longer, as each API level is a sizable download.
 
-### Create an Android Virtual Device
-
-If you have never installed the Android SDK, then you will probably need to create a new Android Virtual Device (avd) in order to use the emulator later on.
-
-1. Check if there are any avds
-
-    android list avd
-    
-2. If there are no devices listed, then create one:
-
-    android create avd -n gs -t 1
-    
-3. If you get prompted about multiple system images, then pick one based on your platform. For example, I have an x86 laptop so I picked x86.
-
-    android create avd -n gs -t 1 --abi x86
-    
-4. Check if you're new avd is on the list:
-
-    android list avd
-    
-5. Test out your new avd by launching the emulator.
-
-    emulator -avd gs
 
 Set up the project
 ------------------
 
 First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Getting Started with Maven](../gs-maven/README.md) or [Getting Started with Gradle](../gs-gradle/README.md).
 
-In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/hello` on *nix systems:
+In a project directory of your choosing, create the following subdirectory structure; for example, with `mkdir -p src/main/java/org/hello` on *nix systems:
 
     └── src
         └── main
@@ -360,7 +337,7 @@ public class Tweet {
 Invoking REST services with the RestTemplate
 --------------------------------------------
 
-Spring provides a convenient template class called the `RestTemplate`. The `RestTemplate` makes interacting with most RESTful services a one-liner incantation. In the example below, we establish a few variables and then make a request of the Twitter search service. As mentioned earlier, we will use Jackson to marshal the JSON response data into our representation classes.
+Spring provides a convenient template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, we establish a few variables and then make a request of our simple REST service. As mentioned earlier, we will use Jackson to marshal the JSON response data into our representation classes.
 
 `src/main/java/org/hello/HelloActivity.java`
 ```java
@@ -407,23 +384,41 @@ public class HelloActivity extends Activity {
 }
 ```
     
-Thus far, we've only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
+So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
+
+
+Starting an Android Virtual Device
+----------------------------------
+
+If you do not have an Android device for testing, you can use an Android Virtual Device (AVD). To do this, you must first have the [Android SDK] installed and also have installed the corresponding SDK [Platforms and Packages].
+
+### Creating an AVD
+
+The following command creates a new AVD based on Android 4.2.2 (API Level 17).
+
+```sh
+$ android create avd --name Default --target 29 --abi armeabi-v7a
+```
+
+### Start the AVD
+
+Use the following command to start the emulator using the Android Maven Plugin:
+
+```sh
+$ mvn android:emulator-start
+```
+
+This command will try to start an emulator named "Default". Please be patient as the emulator takes a few moments to finish startup.
 
 
 Building and Running the Client
 -------------------------------
 
-To build the code, first build it:
+Once the emulator has completed starting up, run the following command to invoke the code and see the results of the REST request:
 
-    mvn clean install
-    
-Next, to run the emulator, invoke:
-
-    mvn android:emulator-start
-    
-After the emulator is up and running, you can deploy and run the Android code to see the results of the search:
-
-    mvn android:deploy android:run
+```sh
+$ mvn clean package android:deploy android:run
+```
 	
 This will compile the Android app and then run it in the emulator.
 
