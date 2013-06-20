@@ -40,7 +40,7 @@ Set up the project
 ### Create a Layout
 
     {!include:complete/res/layout/hello_layout.xml}
-  
+
 <a name="initial"></a>
 Create a representation class
 -----------------------------
@@ -96,14 +96,14 @@ The first representation class defines a single property which contains the list
 
 
     {!include:complete/src/main/java/org/hello/TwitterSearchResults.java}
-    
+
 
 ### Tweet
 
 The second representation class is for each individual tweet. Again you see `@JsonIgnoreProperties` being used, and additionally, the `@JsonProperty` annotation allows allows us to map specific fields in the JSON data to fields in the representational class which have different names.
 
     {!include:complete/src/main/java/org/hello/Tweet.java}
-    
+
 
 Invoking REST services with the RestTemplate
 --------------------------------------------
@@ -111,7 +111,7 @@ Invoking REST services with the RestTemplate
 Spring provides a convenient template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, we establish a few variables and then make a request of our simple REST service. As mentioned earlier, we will use Jackson to marshal the JSON response data into our representation classes.
 
     {!include:complete/src/main/java/org/hello/HelloActivity.java}
-    
+
 So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
 
 

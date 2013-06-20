@@ -241,7 +241,7 @@ The [Android Manifest] contains all the information required to run an Android a
     />
 </LinearLayout>
 ```
-  
+
 <a name="initial"></a>
 Create a representation class
 -----------------------------
@@ -328,7 +328,7 @@ public class TwitterSearchResults {
 
 }
 ```
-    
+
 
 ### Tweet
 
@@ -367,7 +367,7 @@ public class Tweet {
 
 }
 ```
-    
+
 
 Invoking REST services with the RestTemplate
 --------------------------------------------
@@ -402,7 +402,7 @@ public class HelloActivity extends Activity {
 
 }
 ```
-    
+
 So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
 
 
