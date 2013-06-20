@@ -377,12 +377,12 @@ public class HelloActivity extends Activity {
 So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
 
 
-Starting an Android Virtual Device
+Start an Android Virtual Device
 ----------------------------------
 
-If you do not have an Android device for testing, you can use an Android Virtual Device (AVD). To do this, you must first have the [Android SDK] installed and also have installed the corresponding SDK [Platforms and Packages].
+If you do not have an Android device for testing, you can use an [Android Virtual Device (AVD)][avd]. To do this, you must first have the [Android SDK][sdk] installed and also have installed the corresponding SDK [Platforms and Packages].
 
-### Creating an AVD
+### Create an AVD
 
 The following command creates a new AVD based on Android 4.2.2 (API Level 17).
 
@@ -399,6 +399,10 @@ $ mvn android:emulator-start
 ```
 
 This command will try to start an emulator named "Default". Please be patient as the emulator takes a few moments to finish startup.
+
+[sdk]: http://developer.android.com/sdk/index.html
+[avd]: http://developer.android.com/tools/devices/index.html
+[Platforms and Packages]: http://developer.android.com/sdk/installing/adding-packages.html
 
 
 Building and Running the Client

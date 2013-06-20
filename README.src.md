@@ -108,28 +108,7 @@ Spring provides a convenient template class called `RestTemplate`. `RestTemplate
 So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
 
 
-Starting an Android Virtual Device
-----------------------------------
-
-If you do not have an Android device for testing, you can use an Android Virtual Device (AVD). To do this, you must first have the [Android SDK] installed and also have installed the corresponding SDK [Platforms and Packages].
-
-### Creating an AVD
-
-The following command creates a new AVD based on Android 4.2.2 (API Level 17).
-
-```sh
-$ android create avd --name Default --target 29 --abi armeabi-v7a
-```
-
-### Start the AVD
-
-Use the following command to start the emulator using the Android Maven Plugin:
-
-```sh
-$ mvn android:emulator-start
-```
-
-This command will try to start an emulator named "Default". Please be patient as the emulator takes a few moments to finish startup.
+## {!include#start-android-virtual-device}
 
 
 Building and Running the Client
