@@ -122,60 +122,60 @@ $ mkdir -p src/main/java/org/hello
 `pom.xml`
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>org.hello</groupId>
-	<artifactId>rest-android-complete</artifactId>
-	<version>0.1.0</version>
-	<packaging>apk</packaging>
-	<name>rest-android-complete</name>
+    <groupId>org.hello</groupId>
+    <artifactId>rest-android-complete</artifactId>
+    <version>0.1.0</version>
+    <packaging>apk</packaging>
+    <name>rest-android-complete</name>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android</artifactId>
-			<version>4.1.1.4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.android</groupId>
-			<artifactId>spring-android-rest-template</artifactId>
-			<version>1.0.1.RELEASE</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.2.1</version>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>4.1.1.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.android</groupId>
+            <artifactId>spring-android-rest-template</artifactId>
+            <version>1.0.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
-				<artifactId>android-maven-plugin</artifactId>
-				<version>3.6.0</version>
-				<configuration>
-					<sdk>
-						<platform>17</platform>
-					</sdk>
-					<deleteConflictingFiles>true</deleteConflictingFiles>
-					<undeployBeforeDeploy>true</undeployBeforeDeploy>
-				</configuration>
-				<extensions>true</extensions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.1</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <sdk>
+                        <platform>17</platform>
+                    </sdk>
+                    <deleteConflictingFiles>true</deleteConflictingFiles>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                </configuration>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
 ```
@@ -307,24 +307,24 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TwitterSearchResults {
 
-	private List<Tweet> results;
+    private List<Tweet> results;
 
-	public List<Tweet> getResults() {
-		return results;
-	}
+    public List<Tweet> getResults() {
+        return results;
+    }
 
-	public void setResults(List<Tweet> results) {
-		this.results = results;
-	}
+    public void setResults(List<Tweet> results) {
+        this.results = results;
+    }
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		for (Tweet tweet : results) {
-			sb.append(tweet.getFromUser()).append(": ").append(tweet.getText()).append("\n");
-		}
-		return sb.toString();
-	}
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Tweet tweet : results) {
+            sb.append(tweet.getFromUser()).append(": ").append(tweet.getText()).append("\n");
+        }
+        return sb.toString();
+    }
 
 }
 ```
@@ -344,26 +344,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Tweet {
 
-	@JsonProperty("from_user")
-	private String fromUser;
+    @JsonProperty("from_user")
+    private String fromUser;
 
-	private String text;
+    private String text;
 
-	public String getFromUser() {
-		return fromUser;
-	}
-	
-	public void setFromUser(String fromUser) {
-		this.fromUser = fromUser;
-	}
+    public String getFromUser() {
+        return fromUser;
+    }
+    
+    public void setFromUser(String fromUser) {
+        this.fromUser = fromUser;
+    }
 
-	public String getText() {
-		return text;
-	}
-	
-	public void setText(String text) {
-		this.text = text;
-	}
+    public String getText() {
+        return text;
+    }
+    
+    public void setText(String text) {
+        this.text = text;
+    }
 
 }
 ```
@@ -386,19 +386,19 @@ import android.os.Bundle;
 
 public class HelloActivity extends Activity {
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.hello_layout);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.hello_layout);
 
-		String url = "http://search.twitter.com/search.json?q={query}";
+        String url = "http://search.twitter.com/search.json?q={query}";
 
-		String queryParameter = "@gopivotal";
+        String queryParameter = "@gopivotal";
 
-		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-		TwitterSearchResults results = restTemplate.getForObject(url, TwitterSearchResults.class, queryParameter);
-	}
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+        TwitterSearchResults results = restTemplate.getForObject(url, TwitterSearchResults.class, queryParameter);
+    }
 
 }
 ```
