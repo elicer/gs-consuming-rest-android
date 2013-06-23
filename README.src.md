@@ -94,7 +94,6 @@ The `from_user` field represents the user who posted the tweet, and `text` is th
 
 The first representation class defines a single property which contains the list of tweets from the search. The `@JsonIgnoreProperties` annotation says to ignore all the other fields in the JSON response data. We are only concerned with the tweets.
 
-
     {!include:complete/src/main/java/org/hello/TwitterSearchResults.java}
 
 
@@ -105,8 +104,8 @@ The second representation class is for each individual tweet. Again you see `@Js
     {!include:complete/src/main/java/org/hello/Tweet.java}
 
 
-Invoking REST services with the RestTemplate
---------------------------------------------
+Invoke a REST service with RestTemplate
+---------------------------------------
 
 Spring provides a convenient template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, we establish a few variables and then make a request of our simple REST service. As mentioned earlier, we will use Jackson to marshal the JSON response data into our representation classes.
 

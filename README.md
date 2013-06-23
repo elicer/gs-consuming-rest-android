@@ -49,21 +49,21 @@ Building Android applications requires the installation of the [Android SDK][sdk
 3. Configure the `ANDROID_HOME` environment variable based on the location where you installed the Android SDK. Additionally, you should consider adding `ANDROID_HOME/tools`, and  `ANDROID_HOME/platform-tools` to your PATH.
 
     Mac OS X:
-    
+
     ```sh
     $ export ANDROID_HOME=/<installation location>/android-sdk-macosx
     $ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
     ```
-    
+
     Linux:
-    
+
     ```sh
     $ export ANDROID_HOME=/<installation location>/android-sdk-linux
     $ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
     ```
-	    
+
     Windows:
-    
+
     ```sh
     set ANDROID_HOME=C:\<installation location>\android-sdk-windows
     set PATH=%PATH%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools
@@ -77,12 +77,12 @@ The [Android SDK][sdk] download does not include any specific Android platforms.
 
 1. Open the *Android SDK Manager* window:
 
-	```sh
-	$ android
-	```
+    ```sh
+    $ android
+    ```
 
-	> Note: if this command does not open the *Android SDK Manager*, then your path is not configured correctly.
-	
+    > Note: if this command does not open the *Android SDK Manager*, then your path is not configured correctly.
+
 2. Select the checkbox for *Tools*
 
 3. Select the checkbox for the latest Android SDK, "Android 4.2.2 (API Level 17)" as of this writing
@@ -91,7 +91,7 @@ The [Android SDK][sdk] download does not include any specific Android platforms.
 
 5. Click the **Install packages...** button to complete the download and installation
 
-	> Note: you may want to simply install all the available updates, but be aware it will take longer, as each API level is a sizable download.
+    > Note: you may want to simply install all the available updates, but be aware it will take longer, as each API level is a sizable download.
 
 [sdk]: http://developer.android.com/sdk/index.html
 [Android Developers]: http://developer.android.com/sdk/installing/index.html
@@ -295,7 +295,6 @@ The `from_user` field represents the user who posted the tweet, and `text` is th
 
 The first representation class defines a single property which contains the list of tweets from the search. The `@JsonIgnoreProperties` annotation says to ignore all the other fields in the JSON response data. We are only concerned with the tweets.
 
-
 `src/main/java/org/hello/TwitterSearchResults.java`
 ```java
 package org.hello;
@@ -369,8 +368,8 @@ public class Tweet {
 ```
 
 
-Invoking REST services with the RestTemplate
---------------------------------------------
+Invoke a REST service with RestTemplate
+---------------------------------------
 
 Spring provides a convenient template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, we establish a few variables and then make a request of our simple REST service. As mentioned earlier, we will use Jackson to marshal the JSON response data into our representation classes.
 
@@ -442,7 +441,7 @@ Once the emulator has finished starting up, run the following command to invoke 
 ```sh
 $ mvn clean package android:deploy android:run
 ```
-	
+
 This will build the Android app and then run it in the emulator.
 
 
