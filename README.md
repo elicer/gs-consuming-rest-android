@@ -126,7 +126,7 @@ $ mkdir -p src/main/java/org/hello
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.hello</groupId>
-    <artifactId>gs-consuming-rest-android</artifactId
+    <artifactId>gs-consuming-rest-android</artifactId>
     <version>0.1.0</version>
     <packaging>apk</packaging>
     <name>gs-consuming-rest-android</name>
@@ -229,15 +229,30 @@ The [Android Manifest] contains all the information required to run an Android a
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
-<TextView  
-    android:id="@+id/text_view"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    />
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/about"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/website"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
 ```
 
@@ -340,6 +355,7 @@ Spring provides a convenient template class called `RestTemplate`. `RestTemplate
 ```java
 package org.hello;
 
+import org.hello.Page;
 import org.hello.R;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
@@ -359,12 +375,22 @@ public class HelloActivity extends Activity {
     @Override
     public void onStart() {
         super.onStart();
-        final String url = "http://search.twitter.com/search.json?q={query}";
+
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
         Page page = restTemplate.getForObject("http://graph.facebook.com/gopivotal", Page.class);
-        TextView textView = (TextView) this.findViewById(R.id.text_view);
+
+        TextView textView = (TextView) this.findViewById(R.id.name);
         textView.setText(page.getName());
+
+        textView = (TextView) this.findViewById(R.id.about);
+        textView.setText(page.getAbout());
+
+        textView = (TextView) this.findViewById(R.id.phone);
+        textView.setText(page.getPhone());
+
+        textView = (TextView) this.findViewById(R.id.website);
+        textView.setText(page.getWebsite());
     }
 
 }
