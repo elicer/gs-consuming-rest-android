@@ -1,5 +1,6 @@
 package org.hello;
 
+import org.hello.Page;
 import org.hello.R;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
