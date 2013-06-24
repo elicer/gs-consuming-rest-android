@@ -20,7 +20,6 @@ public class HelloActivity extends Activity {
     @Override
     public void onStart() {
         super.onStart();
-        final String url = "http://search.twitter.com/search.json?q={query}";
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
         Page page = restTemplate.getForObject("http://graph.facebook.com/gopivotal", Page.class);
