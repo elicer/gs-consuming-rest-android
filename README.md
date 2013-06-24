@@ -151,7 +151,6 @@ $ mkdir -p src/main/java/org/hello
     </dependencies>
 
     <build>
-        <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
