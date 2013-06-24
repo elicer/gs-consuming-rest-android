@@ -42,66 +42,62 @@ Set up the project
     {!include:complete/res/layout/hello_layout.xml}
 
 <a name="initial"></a>
-Create a representation class
------------------------------
+Fetch a REST resource
+------------------------
 
-With the Android project configured, it's time to create our REST request. Before we can do that though, we need to consider the data we are wanting to consume. 
+With the Android project configured, it's time to create our REST request. Before we can do that though, we need to consider the data we are wanting to consume.
 
-### Twitter JSON Data
+Suppose that you want to find out what Facebook knows about Pivotal. Knowing that Pivotal has a page on Facebook and that the ID is "gopivotal", you should be able to query Facebook's Graph API via this URL:
 
-In the case of Twitter search, JSON data is returned which looks like the following:
+    http://graph.facebook.com/gopivotal
 
-```json
+If you request that URL through your web browser or curl, you'll receive a JSON document that looks something like this:
+
+```javascript
 {
-    "completed_in": 0.036,
-    "max_id": 326785345083568100,
-    "max_id_str": "326785345083568130",
-    "next_page": "?page=2&max_id=326785345083568130&q=gopivotal",
-    "page": 1,
-    "query": "gopivotal",
-    "refresh_url": "?since_id=326785345083568130&q=gopivotal",
-    "results": [
-        {
-            "created_at": "Tue, 23 Apr 2013 19:51:12 +0000",
-            "from_user": "CetasAnalytics",
-            "from_user_id": 353318641,
-            "from_user_id_str": "353318641",
-            "from_user_name": "Cetas",
-            "geo": null,
-            "id": 326785345083568100,
-            "id_str": "326785345083568130",
-            "iso_language_code": "en",
-            "metadata": {
-                "result_type": "recent"
-            },
-            "profile_image_url": "http://a0.twimg.com/profile_images/2269920546/p3949ch8l877idajhez6_normal.png",
-            "profile_image_url_https": "https://si0.twimg.com/profile_images/2269920546/p3949ch8l877idajhez6_normal.png",
-            "source": "&lt;a href=&quot;http://www.hootsuite.com&quot;&gt;HootSuite&lt;/a&gt;",
-            "text": "Ready. Set. Go. Pivotal is now launching April 24th. Join the live broadcast at http://t.co/qqfl3zSXN3"
-        }        
-    ],
-    "results_per_page": 15,
-    "since_id": 0,
-    "since_id_str": "0"
+   "id": "161112704050757",
+   "about": "At Pivotal, our mission is to enable customers to build a new class of applications, leveraging big and fast data, and do all of this with the power of cloud independence. ",
+   "app_id": "0",
+   "can_post": false,
+   "category": "Internet/software",
+   "checkins": 0,
+   "cover": {
+      "cover_id": 163344023827625,
+      "source": "http://sphotos-d.ak.fbcdn.net/hphotos-ak-frc1/s720x720/554668_163344023827625_839302172_n.png",
+      "offset_y": 0,
+      "offset_x": 0
+   },
+   "founded": "2013",
+   "has_added_app": false,
+   "is_community_page": false,
+   "is_published": true,
+   "likes": 126,
+   "link": "https://www.facebook.com/gopivotal",
+   "location": {
+      "street": "1900 South Norfolk St.",
+      "city": "San Mateo",
+      "state": "CA",
+      "country": "United States",
+      "zip": "94403",
+      "latitude": 37.552261,
+      "longitude": -122.292152
+   },
+   "name": "Pivotal",
+   "phone": "650-286-8012",
+   "talking_about_count": 15,
+   "username": "gopivotal",
+   "website": "http://www.gopivotal.com",
+   "were_here_count": 0
 }
 ```
 
-As you can see, Twitter returns quite a bit of information. Do not worry if some of this data appears unfamiliar. For the purposes of this guide, we are only going to concern ourselves with a few parts of it.
+As you can see, Facebook returns quite a bit of information. Do not worry if some of this data appears unfamiliar. For the purposes of this guide, we are only going to concern ourselves with a few parts of it.
 
-The `from_user` field represents the user who posted the tweet, and `text` is the actual text of the tweet. To model the tweet representation, we’ll create two representation classes which define these fields. In this example, we are making use of a few Jackson annotations. Jackson is a powerful JSON processor for Java, and can be utilized within Spring.
+To model this JSON data, we’ll create a representation class which defines a few of these fields. In this example, we are making use of Jackson annotations. Jackson is a powerful JSON processor for Java, and can be utilized within Spring.
 
-### Twitter Search Results
+    {!include:complete/src/main/java/org/hello/Page.java}
 
-The first representation class defines a single property which contains the list of tweets from the search. The `@JsonIgnoreProperties` annotation says to ignore all the other fields in the JSON response data. We are only concerned with the tweets.
-
-    {!include:complete/src/main/java/org/hello/TwitterSearchResults.java}
-
-
-### Tweet
-
-The second representation class is for each individual tweet. Again you see `@JsonIgnoreProperties` being used, and additionally, the `@JsonProperty` annotation allows allows us to map specific fields in the JSON data to fields in the representational class which have different names.
-
-    {!include:complete/src/main/java/org/hello/Tweet.java}
+As you can see, this is a simple Java class with a handful of properties and matching getter methods. It's annotated with `@JsonIgnoreProperties` from the Jackson JSON processing library to indicate that any properties not bound in this type should be ignored.
 
 
 Invoke a REST service with RestTemplate
