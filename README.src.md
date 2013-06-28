@@ -1,10 +1,10 @@
-Getting Started: Consuming REST Services with Spring
-====================================================
+Getting Started: Consuming REST Services with Spring for Android
+================================================================
 
 What you'll build
 -----------------
 
-This Getting Started guide will walk you through the process of consuming a REST service using Spring for Android's `RestTemplate`.
+This Getting Started guide walks you through the process of building an application that uses Spring for Android's `RestTemplate` to consume a REST service.
 
 What you'll need
 ----------------
@@ -33,21 +33,20 @@ Set up the project
 
     {!include:complete/AndroidManifest.xml}
 
-### Create a String Resource
+### Create a string resource
+Add a text string. Text strings can be referenced from the application or from other resource files.
 
     {!include:complete/res/values/strings.xml}
 
-### Create a Layout
+### Create a layout
+Here you define the visual structure for the user interface of your application.
 
     {!include:complete/res/layout/hello_layout.xml}
 
 <a name="initial"></a>
 Fetch a REST resource
 ------------------------
-
-With the Android project configured, it's time to create our REST request. Before we can do that though, we need to consider the data we are wanting to consume.
-
-Suppose that you want to find out what Facebook knows about Pivotal. Knowing that Pivotal has a page on Facebook and that the ID is "gopivotal", you should be able to query Facebook's Graph API via this URL:
+Before you create the REST request, consider the data that you want your application to consume. Suppose that you want to find out what Facebook knows about Pivotal. Knowing that Pivotal has a page on Facebook and that the ID is "gopivotal", query Facebook's Graph API via this URL:
 
     http://graph.facebook.com/gopivotal
 
@@ -91,9 +90,12 @@ If you request that URL through your web browser or curl, you'll receive a JSON 
 }
 ```
 
-As you can see, Facebook returns quite a bit of information. Do not worry if some of this data appears unfamiliar. For the purposes of this guide, we are only going to concern ourselves with a few parts of it.
+As you can see, Facebook returns quite a bit of information. This guide deals with a small part of it.
 
-To model this JSON data, we’ll create a representation class which defines a few of these fields. In this example, we are making use of Jackson annotations. Jackson is a powerful JSON processor for Java, and can be utilized within Spring.
+Create a representation class
+-----------------------------
+
+To model this JSON data, you create a representation class that defines a few of these fields. The following example uses Jackson annotations. Jackson is a powerful JSON processor for Java that you can use within Spring.
 
     {!include:complete/src/main/java/org/hello/Page.java}
 
@@ -103,11 +105,11 @@ As you can see, this is a simple Java class with a handful of properties and mat
 Invoke a REST service with RestTemplate
 ---------------------------------------
 
-Spring provides a convenient template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, we establish a few variables and then make a request of our simple REST service. As mentioned earlier, we will use Jackson to marshal the JSON response data into our representation classes.
+Spring provides a template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, you establish a few variables and then make a request of our simple REST service. As mentioned earlier, you use Jackson to marshal the JSON response data into our representation classes.
 
     {!include:complete/src/main/java/org/hello/HelloActivity.java}
 
-So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
+So far, you have only used the HTTP verb `GET` to make calls, but you could just as easily have used `POST`, `PUT`, and so on.
 
 
 ## {!include#start-android-virtual-device}
@@ -119,7 +121,7 @@ So far, we have only used the HTTP verb `GET` to make calls, but we could just a
 Summary
 -------
 
-Congratulations! You have just developed a simple REST client using Spring.
+Congratulations! You have developed a simple REST client using Spring for Android.
 
 There's more to building and working with REST APIs than is covered here.
 
