@@ -38,7 +38,7 @@ To **skip the basics**, do the following:
 Set up the project
 ------------------
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Getting Started with Maven](../gs-maven-android/README.md) or [Getting Started with Gradle](../gs-gradle-android/README.md).
+First you set up a basic build script. If this is your first time working with Android projects, refer to [Getting Started with Android](../gs-android/README.md) to help configure your development environment. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Getting Started with Maven](../gs-maven-android/README.md) or [Getting Started with Gradle](../gs-gradle-android/README.md).
 
 ### Create the directory structure
 
@@ -339,7 +339,7 @@ So far, we have only used the HTTP verb `GET` to make calls, but we could just a
 Build and run the client
 ------------------------
 
-Once the emulator starts up, run the following command to invoke the code and see the results of the REST request:
+When you have an attached device or running emulator, use the following command to invoke the code and see the results of the REST request:
 
 ```sh
 $ mvn clean package android:deploy android:run
