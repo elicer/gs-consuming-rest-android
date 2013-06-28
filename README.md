@@ -9,7 +9,7 @@ This Getting Started guide will walk you through the process of consuming a REST
 What you'll need
 ----------------
 
-- About 15 minutes
+ - About 15 minutes
  - A favorite text editor or IDE
  - [Android SDK][sdk]
  - [Maven 3.0][mvn] or later
@@ -35,68 +35,6 @@ To **skip the basics**, do the following:
 **When you're finished**, you can check your results against the code in `{@project-name}/complete`.
 
 <a name="scratch"></a>
-<a name="android-dev-env"></a>
-Install the Android development environment
-----------------------------------------------
-
-Building Android applications requires you to install the [Android SDK][sdk]. Installing the Android SDK also installs the AVD Manager, which provides a graphical user interface for creating and managing Android Virtual Devices (AVDs). 
-
-### Install the Android SDK
-
-1. Download the correct version of the [Android SDK][sdk] for your operating system from the Android web site.
-
-2. Unzip the archive to a location of your choosing. For example, on Linux or Mac, you could place it in the root of your user directory. See the [Android Developers] web site for additional installation details.
-
-3. Configure the `ANDROID_HOME` environment variable based on the location of the Android SDK. Additionally, consider adding `ANDROID_HOME/tools`, and  `ANDROID_HOME/platform-tools` to your PATH.
-
-    Mac OS X:
-
-    ```sh
-    $ export ANDROID_HOME=/<installation location>/android-sdk-macosx
-    $ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-    ```
-
-    Linux:
-
-    ```sh
-    $ export ANDROID_HOME=/<installation location>/android-sdk-linux
-    $ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-    ```
-
-    Windows:
-
-    ```sh
-    set ANDROID_HOME=C:\<installation location>\android-sdk-windows
-    set PATH=%PATH%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools
-    ```
-
-### Install Android SDK platforms and packages
-
-The [Android SDK][sdk] download does not include specific Android platforms. To run the code in this guide, you need to download and install the latest SDK Platform. You do this by using the Android SDK and AVD Manager that was installed from the previous step.
-
-1. Open the **Android SDK Manager** window:
-
-    ```sh
-    $ android
-    ```
-
-    > Note: If this command does not open the *Android SDK Manager*, then your path is not configured correctly.
-
-2. Select the checkbox for **Tools**.
-
-3. Select the checkbox for the latest Android SDK, Android 4.2.2 (API Level 17) as of this writing.
-
-4. Select the checkbox for the **Android Support Library** from the **Extras** folder.
-
-5. Click the **Install packages...** button to complete the download and installation.
-
-    > Note: You may want to install all the available updates, but be aware it will take longer, as each API level is a large download.
-
-[sdk]: http://developer.android.com/sdk/index.html
-[Android Developers]: http://developer.android.com/sdk/installing/index.html
-[Platforms and Packages]: http://developer.android.com/sdk/installing/adding-packages.html
-
-
 Set up the project
 ------------------
 
@@ -396,34 +334,6 @@ public class HelloActivity extends Activity {
 ```
 
 So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
-
-
-Start an Android virtual device
-----------------------------------
-
-If you do not have an Android device for testing, you can use an [Android Virtual Device (AVD)][avd]. To do this, you must first install the Android SDK and install the corresponding SDK platforms and packages. See [Install the Android Development Environment](#android-dev-env).
-
-### Create an AVD
-
-The following command creates a new AVD based on Android 4.2.2 (API Level 17).
-
-```sh
-$ android create avd --name Default --target 29 --abi armeabi-v7a
-```
-
-### Start the AVD
-
-Start the emulator using the Android Maven plugin:
-
-```sh
-$ mvn android:emulator-start
-```
-
-This command starts an emulator named "Default". Please be patient as the emulator takes a few moments to finish startup.
-
-[sdk]: http://developer.android.com/sdk/index.html
-[avd]: http://developer.android.com/tools/devices/index.html
-[Platforms and Packages]: http://developer.android.com/sdk/installing/adding-packages.html
 
 
 Build and run the client

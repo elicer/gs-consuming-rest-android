@@ -9,15 +9,12 @@ This Getting Started guide will walk you through the process of consuming a REST
 What you'll need
 ----------------
 
-- About 15 minutes
-- {!include#prereq-editor-android-buildtools}
+ - About 15 minutes
+ - {!include#prereq-editor-android-buildtools}
 
 ## {!include#how-to-complete-this-guide}
 
 <a name="scratch"></a>
-## {!include#android-dev-env}
-
-
 Set up the project
 ------------------
 
@@ -108,9 +105,6 @@ Spring provides a convenient template class called `RestTemplate`. `RestTemplate
     {!include:complete/src/main/java/org/hello/HelloActivity.java}
 
 So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
-
-
-## {!include#start-android-virtual-device}
 
 
 ## {!include#build-and-run-android}
