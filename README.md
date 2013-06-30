@@ -1,10 +1,10 @@
-Getting Started: Consuming REST Services with Spring
-====================================================
+Getting Started: Consuming REST Services with Spring for Android
+================================================================
 
 What you'll build
 -----------------
 
-This Getting Started guide will walk you through the process of consuming a REST service using Spring for Android's `RestTemplate`.
+This Getting Started guide walks you through the process of building an application that uses Spring for Android's `RestTemplate` to consume a REST service.
 
 What you'll need
 ----------------
@@ -38,7 +38,13 @@ To **skip the basics**, do the following:
 Set up the project
 ------------------
 
-First you set up a basic build script. If this is your first time working with Android projects, refer to [Getting Started with Android](../gs-android/README.md) to help configure your development environment. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Getting Started with Maven](../gs-maven-android/README.md) or [Getting Started with Gradle](../gs-gradle-android/README.md).
+In this section you set up a basic build script and then create a simple application. 
+
+> **Note:**If you are new to Android projects, before you proceed, refer to [Getting Started with Android](../gs-android/README.md) to help you configure your development environment. 
+
+You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Getting Started with Maven](../gs-maven-android/README.md) or [Getting Started with Gradle](../gs-gradle-android/README.md).
+
+After you create a simple web application that will consume the REST 
 
 ### Create the directory structure
 
@@ -148,7 +154,8 @@ The [Android Manifest] contains all the information required to run an Android a
 </manifest>
 ```
 
-### Create a String Resource
+### Create a string resource
+Add a text string. Text strings can be referenced from the application or from other resource files.
 
 `res/values/strings.xml`
 ```xml
@@ -160,7 +167,8 @@ The [Android Manifest] contains all the information required to run an Android a
 </resources>
 ```
 
-### Create a Layout
+### Create a layout
+Here you define the visual structure for the user interface of your application.
 
 `res/layout/hello_layout.xml`
 ```xml
@@ -196,10 +204,7 @@ The [Android Manifest] contains all the information required to run an Android a
 <a name="initial"></a>
 Fetch a REST resource
 ------------------------
-
-With the Android project configured, it's time to create our REST request. Before we can do that though, we need to consider the data we are wanting to consume.
-
-Suppose that you want to find out what Facebook knows about Pivotal. Knowing that Pivotal has a page on Facebook and that the ID is "gopivotal", you should be able to query Facebook's Graph API via this URL:
+Before you create the REST request, consider the data that you want your application to consume. Suppose that you want to find out what Facebook knows about Pivotal. Knowing that Pivotal has a page on Facebook and that the ID is "gopivotal", query Facebook's Graph API via this URL:
 
     http://graph.facebook.com/gopivotal
 
@@ -243,9 +248,12 @@ If you request that URL through your web browser or curl, you'll receive a JSON 
 }
 ```
 
-As you can see, Facebook returns quite a bit of information. Do not worry if some of this data appears unfamiliar. For the purposes of this guide, we are only going to concern ourselves with a few parts of it.
+As you can see, Facebook returns quite a bit of information. This guide deals with a small part of it.
 
-To model this JSON data, we’ll create a representation class which defines a few of these fields. In this example, we are making use of Jackson annotations. Jackson is a powerful JSON processor for Java, and can be utilized within Spring.
+Create a representation class
+-----------------------------
+
+To model this JSON data, you create a representation class that defines a few of these fields. The following example uses Jackson annotations. Jackson is a powerful JSON processor for Java that you can use within Spring.
 
 `src/main/java/org/hello/Page.java`
 ```java
@@ -286,7 +294,7 @@ As you can see, this is a simple Java class with a handful of properties and mat
 Invoke a REST service with RestTemplate
 ---------------------------------------
 
-Spring provides a convenient template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, we establish a few variables and then make a request of our simple REST service. As mentioned earlier, we will use Jackson to marshal the JSON response data into our representation classes.
+Spring provides a template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, you establish a few variables and then make a request of our simple REST service. As mentioned earlier, you use Jackson to marshal the JSON response data into our representation classes.
 
 `src/main/java/org/hello/HelloActivity.java`
 ```java
@@ -333,7 +341,7 @@ public class HelloActivity extends Activity {
 }
 ```
 
-So far, we have only used the HTTP verb `GET` to make calls, but we could just as easily have used `POST`, `PUT`, etc.
+So far, you have only used the HTTP verb `GET` to make calls, but you could just as easily have used `POST`, `PUT`, and so on.
 
 
 Build and run the client
@@ -351,7 +359,7 @@ This command builds the Android app and runs it in the emulator.
 Summary
 -------
 
-Congratulations! You have just developed a simple REST client using Spring.
+Congratulations! You have developed a simple REST client using Spring for Android.
 
 There's more to building and working with REST APIs than is covered here.
 
