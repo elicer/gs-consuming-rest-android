@@ -102,7 +102,7 @@ To model this JSON data, you create a representation class that defines a few of
 As you can see, this is a simple Java class with a handful of properties and matching getter methods. It's annotated with `@JsonIgnoreProperties` from the Jackson JSON processing library to indicate that any properties not bound in this type should be ignored.
 
 
-Invoke a REST service with RestTemplate
+Invoke a REST service with the RestTemplate
 ---------------------------------------
 
 Spring provides a template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, you establish a few variables and then make a request of our simple REST service. As mentioned earlier, you use Jackson to marshal the JSON response data into our representation classes.
@@ -123,6 +123,7 @@ Summary
 
 Congratulations! You have developed a simple REST client using Spring for Android.
 
-There's more to building and working with REST APIs than is covered here.
+
+## {!include#related-resources}
 
 [zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
