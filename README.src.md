@@ -118,6 +118,4 @@ Summary
 Congratulations! You have developed a simple REST client using Spring for Android.
 
 
-## {!include#related-resources}
-
 [zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip

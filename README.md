@@ -361,17 +361,4 @@ Summary
 Congratulations! You have developed a simple REST client using Spring for Android.
 
 
-Related resources
------------------
-You can continue your exploration of Spring and REST with the following Getting Started guides:
-
-* [Handling POST, PUT, and GET Requests in REST Services](TODO)
-* [Creating Self-Describing APIs with HATEOAS](TODO)
-* [Securing a REST Service with HTTP Basic](TODO)
-* [Securing a REST Service with OAuth](TODO)
-* [Building a RESTful Web Service](https://github.com/springframework-meta/gs-rest-service-core/blob/master/README.md)
-* [Consuming RESTful Web Services with Spring](https://github.com/springframework-meta/gs-consuming-rest-core/blob/master/README.md)
-* [Testing REST Services](TODO)
-</span>
-
 [zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
