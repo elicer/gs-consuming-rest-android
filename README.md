@@ -40,11 +40,10 @@ Set up the project
 
 In this section you set up a basic build script and then create a simple application. 
 
-> **Note:**If you are new to Android projects, before you proceed, refer to [Getting Started with Android](../gs-android/README.md) to help you configure your development environment. 
+> **Note:** If you are new to Android projects, before you proceed, refer to [Getting Started with Android](../gs-android/README.md) to help you configure your development environment. 
 
 You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Getting Started with Maven](../gs-maven-android/README.md) or [Getting Started with Gradle](../gs-gradle-android/README.md).
-
-After you create a simple web application that will consume the REST 
+ 
 
 ### Create the directory structure
 
@@ -291,7 +290,7 @@ public class Page {
 As you can see, this is a simple Java class with a handful of properties and matching getter methods. It's annotated with `@JsonIgnoreProperties` from the Jackson JSON processing library to indicate that any properties not bound in this type should be ignored.
 
 
-Invoke a REST service with RestTemplate
+Invoke a REST service with the RestTemplate
 ---------------------------------------
 
 Spring provides a template class called `RestTemplate`. `RestTemplate` makes interacting with most RESTful services a simple process. In the example below, you establish a few variables and then make a request of our simple REST service. As mentioned earlier, you use Jackson to marshal the JSON response data into our representation classes.
@@ -347,13 +346,13 @@ So far, you have only used the HTTP verb `GET` to make calls, but you could just
 Build and run the client
 ------------------------
 
-When you have an attached device or running emulator, use the following command to invoke the code and see the results of the REST request:
+With an attached device or emulator running, invoke the code and see the results of the REST request:
 
 ```sh
 $ mvn clean package android:deploy android:run
 ```
 
-This command builds the Android app and runs it in the emulator.
+The command builds the Android app and runs it in the emulator or attached device.
 
 
 Summary
@@ -361,6 +360,18 @@ Summary
 
 Congratulations! You have developed a simple REST client using Spring for Android.
 
-There's more to building and working with REST APIs than is covered here.
+
+Related resources
+-----------------
+You can continue your exploration of Spring and REST with the following Getting Started guides:
+
+* [Handling POST, PUT, and GET Requests in REST Services](TODO)
+* [Creating Self-Describing APIs with HATEOAS](TODO)
+* [Securing a REST Service with HTTP Basic](TODO)
+* [Securing a REST Service with OAuth](TODO)
+* [Building a RESTful Web Service](https://github.com/springframework-meta/gs-rest-service-core/blob/master/README.md)
+* [Consuming RESTful Web Services with Spring](https://github.com/springframework-meta/gs-consuming-rest-core/blob/master/README.md)
+* [Testing REST Services](TODO)
+</span>
 
 [zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
