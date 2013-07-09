@@ -6,15 +6,13 @@ There's more to consuming RESTful web services from an Android device than is co
 
 * [Consuming XML From a RESTful Web Service on Android][gs-consuming-rest-xml-android]
 * [Consuming RESTful Web Services][gs-consuming-rest]
-* [Accessing Facebook Data][gs-accessing-facebook]
-* [Accessing Twitter Data][gs-accessing-twitter]
 * [Building a RESTful Web Service][gs-rest-service]
+* [Building Android Projects with Maven][gs-maven-android]
 
 [gs-rest-service]: /guides/gs/rest-service/content
 [gs-consuming-rest]: /guides/gs/consuming-rest/content
 [gs-consuming-rest-xml-android]: /guides/gs/consuming-rest-xml-android/content
-[gs-accessing-facebook]: /guides/gs/accessing-facebook/content
-[gs-accessing-twitter]: /guides/gs/accessing-twitter/content
+[gs-maven-android]: /guides/gs/maven-android/content
 
 ### Tutorials
 
