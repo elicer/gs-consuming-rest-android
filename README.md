@@ -1,3 +1,4 @@
+
 Getting Started: Consuming REST Services with Spring for Android
 ================================================================
 
@@ -28,11 +29,12 @@ To **start from scratch**, move on to [Set up the project](#scratch).
 To **skip the basics**, do the following:
 
  - [Download][zip] and unzip the source repository for this guide, or clone it using [git](/understanding/git):
-`git clone https://github.com/springframework-meta/{@project-name}.git`
- - cd into `{@project-name}/initial`
- - Jump ahead to [Create a resource representation class](#initial).
+`git clone https://github.com/springframework-meta/gs-consuming-rest-android.git`
+ - cd into `gs-consuming-rest-android/initial`
+ - Jump ahead to [Fetch a REST resource](#initial).
 
-**When you're finished**, you can check your results against the code in `{@project-name}/complete`.
+**When you're finished**, you can check your results against the code in `gs-consuming-rest-android/complete`.
+[zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
 
 <a name="scratch"></a>
 Set up the project
@@ -120,7 +122,7 @@ $ mkdir -p src/main/java/org/hello
 
 </project>
 ```
-
+    
 ### Create an Android manifest
 
 The [Android Manifest] contains all the information required to run an Android application, and it cannot build without one.
@@ -152,6 +154,7 @@ The [Android Manifest] contains all the information required to run an Android a
 
 </manifest>
 ```
+
 
 ### Create a string resource
 Add a text string. Text strings can be referenced from the application or from other resource files.
@@ -342,7 +345,6 @@ public class HelloActivity extends Activity {
 
 So far, you have only used the HTTP verb `GET` to make calls, but you could just as easily have used `POST`, `PUT`, and so on.
 
-
 Build and run the client
 ------------------------
 
@@ -359,6 +361,3 @@ Summary
 -------
 
 Congratulations! You have developed a simple REST client using Spring for Android.
-
-
-[zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
