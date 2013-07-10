@@ -1,11 +1,12 @@
 
-Getting Started: Consuming REST Services with Spring for Android
-================================================================
+# Getting Started: Consuming REST Services with Spring for Android
+
 
 What you'll build
 -----------------
 
 This Getting Started guide walks you through the process of building an application that uses Spring for Android's `RestTemplate` to consume a REST service.
+
 
 What you'll need
 ----------------
@@ -18,6 +19,7 @@ What you'll need
 
 [sdk]: http://developer.android.com/sdk/index.html
 [mvn]: http://maven.apache.org/download.cgi
+
 
 How to complete this guide
 --------------------------
@@ -35,6 +37,7 @@ To **skip the basics**, do the following:
 
 **When you're finished**, you can check your results against the code in `gs-consuming-rest-android/complete`.
 [zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
+
 
 <a name="scratch"></a>
 Set up the project
@@ -163,9 +166,7 @@ Add a text string. Text strings can be referenced from the application or from o
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Consuming REST</string>
-
 </resources>
 ```
 
@@ -202,6 +203,7 @@ Here you define the visual structure for the user interface of your application.
 
 </LinearLayout>
 ```
+
 
 <a name="initial"></a>
 Fetch a REST resource
