@@ -1,7 +1,4 @@
 
-# Getting Started: Consuming REST Services with Spring for Android
-
-
 What you'll build
 -----------------
 
