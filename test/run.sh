@@ -11,6 +11,7 @@ rm -rf target
 
 cd ../initial
 mvn clean package
+ret=$?
 if [ $ret -ne 0 ]; then
 exit $ret
 fi
