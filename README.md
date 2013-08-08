@@ -1,9 +1,9 @@
+This Getting Started guide walks you through the process of building an application that uses Spring for Android's `RestTemplate` to consume a REST service.
 
 What you'll build
 -----------------
 
-This Getting Started guide walks you through the process of building an application that uses Spring for Android's `RestTemplate` to consume a REST service.
-
+You'll some publicly visible Facebook data using their REST API from Android.
 
 What you'll need
 ----------------
