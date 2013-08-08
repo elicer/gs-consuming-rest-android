@@ -9,10 +9,10 @@ There's more to consuming RESTful web services from an Android device than is co
 * [Building a RESTful Web Service][gs-rest-service]
 * [Building Android Projects with Maven][gs-maven-android]
 
-[gs-rest-service]: /guides/gs/rest-service/content
-[gs-consuming-rest]: /guides/gs/consuming-rest/content
-[gs-consuming-rest-xml-android]: /guides/gs/consuming-rest-xml-android/content
-[gs-maven-android]: /guides/gs/maven-android/content
+[gs-rest-service]: /guides/gs/rest-service/
+[gs-consuming-rest]: /guides/gs/consuming-rest/
+[gs-consuming-rest-xml-android]: /guides/gs/consuming-rest-xml-android/
+[gs-maven-android]: /guides/gs/maven-android/
 
 ### Tutorials
 
