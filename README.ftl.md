@@ -4,7 +4,7 @@ This Getting Started guide walks you through the process of building an applicat
 What you'll build
 -----------------
 
-You'll some publicly visible Facebook data using their REST API from Android.
+You'll fetch some publicly visible Facebook data using their REST API from Android.
 
 What you'll need
 ----------------
