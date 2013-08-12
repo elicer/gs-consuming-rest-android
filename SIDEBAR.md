@@ -16,9 +16,9 @@ There's more to consuming RESTful web services from an Android device than is co
 
 ### Tutorials
 
-* [Tutorial TBD][tut-tbd]
+* [Designing and Implementing RESTful Web Services with Spring][tut-rest]
 
-[tut-tbd]: /guides/tutorials/tbd
+[tut-rest]: /guides/tutorials/rest
 
 ### Understanding
 
