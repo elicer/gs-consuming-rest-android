@@ -2,7 +2,7 @@
 
 There's more to consuming RESTful web services from an Android device than is covered here. You may want to continue your exploration of Spring and REST with the following
 
-### Getting Started Guides
+### Getting Started guides
 
 * [Consuming XML From a RESTful Web Service on Android][gs-consuming-rest-xml-android]
 * [Consuming RESTful Web Services][gs-consuming-rest]
@@ -20,7 +20,7 @@ There's more to consuming RESTful web services from an Android device than is co
 
 [tut-rest]: /guides/tutorials/rest
 
-### Understanding
+### Concepts and technologies
 
 * [REST][u-rest]
 * [JSON][u-json]
