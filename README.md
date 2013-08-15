@@ -27,13 +27,14 @@ To **start from scratch**, move on to [Set up the project](#scratch).
 
 To **skip the basics**, do the following:
 
- - [Download][zip] and unzip the source repository for this guide, or clone it using [git](/understanding/git):
+ - [Download][zip] and unzip the source repository for this guide, or clone it using [git][u-git]:
 `git clone https://github.com/springframework-meta/gs-consuming-rest-android.git`
  - cd into `gs-consuming-rest-android/initial`.
  - Jump ahead to [Fetch a REST resource](#initial).
 
 **When you're finished**, you can check your results against the code in `gs-consuming-rest-android/complete`.
 [zip]: https://github.com/springframework-meta/gs-consuming-rest-android/archive/master.zip
+[u-git]: /understanding/Git
 
 
 <a name="scratch"></a>
