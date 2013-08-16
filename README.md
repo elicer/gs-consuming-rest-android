@@ -45,7 +45,7 @@ In this section you set up a basic build script and then create a simple applica
 
 > **Note:** If you are new to Android projects, before you proceed, refer to [Installing the Android Development Environment](/guides/gs/android/) to help you configure your development environment.
 
-You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Building Android Projects with Maven](/guides/gs/maven-android/) or [Building Android Projects with Gradle](/guides/gs/gradle-android/).
+You can use any build system you like when building apps with Spring, but the code you need to work with [Gradle](http://gradle.org) and [Maven](https://maven.apache.org) is included here. If you're not familiar with either, refer to [Building Android Projects with Gradle](/guides/gs/gradle-android/) or [Building Android Projects with Maven](/guides/gs/maven-android/).
  
 
 ### Create the directory structure
